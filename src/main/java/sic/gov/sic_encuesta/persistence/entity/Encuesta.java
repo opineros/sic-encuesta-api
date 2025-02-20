@@ -20,7 +20,7 @@ public class Encuesta {
     @Column(name = "apellido", nullable = false, length = 160)
     private String apellido;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_marca_pc", nullable = false)
     private sic.gov.sic_encuesta.persistence.entity.MarcaPc idMarcaPc;
 

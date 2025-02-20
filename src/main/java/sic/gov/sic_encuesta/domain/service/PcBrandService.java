@@ -3,6 +3,7 @@ package sic.gov.sic_encuesta.domain.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sic.gov.sic_encuesta.domain.PcBrand;
+import sic.gov.sic_encuesta.domain.Survay;
 import sic.gov.sic_encuesta.domain.repository.PcBrandRepository;
 
 import java.util.List;
@@ -14,5 +15,9 @@ public class PcBrandService {
 
     public List<PcBrand> getAll(){
         return pcBrandRepository.getAll();
+    }
+
+    public PcBrand save(PcBrand pcBrand){
+        return pcBrandRepository.save(pcBrand);
     }
 }

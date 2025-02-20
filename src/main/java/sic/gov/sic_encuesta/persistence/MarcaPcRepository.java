@@ -22,4 +22,10 @@ public class MarcaPcRepository implements PcBrandRepository {
         List<MarcaPc> marcaPcs = (List<MarcaPc>) iMarcaPcCrudRepository.findAll();
         return mapper.toPcBrands(marcaPcs);
     }
+
+    @Override
+    public PcBrand save(PcBrand pcBrand) {
+        MarcaPc marcaPc = mapper.toMarcaPc(pcBrand);
+        return mapper.toPcBrand(iMarcaPcCrudRepository.save(marcaPc));
+    }
 }

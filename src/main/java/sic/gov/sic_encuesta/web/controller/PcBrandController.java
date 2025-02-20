@@ -1,10 +1,11 @@
 package sic.gov.sic_encuesta.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import sic.gov.sic_encuesta.domain.PcBrand;
+import sic.gov.sic_encuesta.domain.Survay;
 import sic.gov.sic_encuesta.domain.service.PcBrandService;
 
 import java.util.List;
@@ -18,5 +19,10 @@ public class PcBrandController {
     @GetMapping("/all")
     public List<PcBrand> getAll() {
         return pcBrandService.getAll();
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity save(@RequestBody PcBrand pcBrand) {
+        return new ResponseEntity<>(pcBrandService.save(pcBrand), HttpStatus.OK) ;
     }
 }

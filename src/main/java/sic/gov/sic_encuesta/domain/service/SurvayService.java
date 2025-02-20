@@ -6,6 +6,8 @@ import sic.gov.sic_encuesta.domain.Survay;
 import sic.gov.sic_encuesta.domain.repository.ISurvayRepository;
 import sic.gov.sic_encuesta.persistence.projection.ResultSurvay;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,6 +24,7 @@ public class SurvayService {
     }
 
     public Survay save(Survay survay){
+        survay.setRegistrationDate(new Date());
         return iSurvayRepository.save(survay);
     }
 }
